@@ -1,42 +1,30 @@
 	.file	"helloworld.c"
 	.text
-	.section	.text.startup,"ax",@progbits
-	.p2align 4
+	.section	.rodata
+.LC0:
+	.string	"Hello World"
+	.text
 	.globl	main
 	.type	main, @function
 main:
-.LFB23:
+.LFB0:
 	.cfi_startproc
 	endbr64
-	xorl	%eax, %eax
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	leaq	.LC0(%rip), %rax
+	movq	%rax, %rdi
+	call	puts@PLT
+	movl	$0, %eax
+	popq	%rbp
+	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE23:
+.LFE0:
 	.size	main, .-main
-	.globl	string
-	.data
-	.align 16
-	.type	string, @object
-	.size	string, 22
-string:
-	.string	"the bear ate the grub"
-	.globl	f
-	.align 4
-	.type	f, @object
-	.size	f, 4
-f:
-	.long	1067320848
-	.globl	c
-	.type	c, @object
-	.size	c, 1
-c:
-	.byte	97
-	.globl	a
-	.align 4
-	.type	a, @object
-	.size	a, 4
-a:
-	.long	1
 	.ident	"GCC: (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0"
 	.section	.note.GNU-stack,"",@progbits
 	.section	.note.gnu.property,"a"
