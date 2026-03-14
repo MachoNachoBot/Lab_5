@@ -11,6 +11,15 @@ g++ -O0 -S helloworldcpp.cpp
 g++ -no-pie helloworldcpp.s -o helloworldcpp
 ./helloworldcpp
 
+Comparsion Optimization 
+gcc -O4 -S helloworld.c
+gcc -no-pie helloworld.s -o helloworld
+./helloworld
+
+g++ -O4 -S helloworldcpp.cpp
+g++ -no-pie helloworldcpp.s -o helloworldcpp
+./helloworldcpp
+
 Part 3
 gcc -no-pie while_loop.s -o while_loop
 ./while_loop
