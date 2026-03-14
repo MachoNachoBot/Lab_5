@@ -21,10 +21,11 @@ g++ -no-pie helloworldcpp.s -o helloworldcpp
 ./helloworldcpp
 
 Part 3
-gcc -no-pie while_loop.s -o while_loop
-./while_loop
-echo $?
-
 gcc -no-pie find_max.s -o find_max
 ./find_max
+echo $?
+
+gcc -O0 -S whileloop.c
+gcc -no-pie whileloop.s -o whileloop
+./whileloop
 echo $?
