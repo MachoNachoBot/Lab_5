@@ -36,7 +36,9 @@ gcc -no-pie whileloop.s -o whileloop
 
 # Run
 ./find_max
+
 echo $?
 
 ./whileloop
+
 echo $?
